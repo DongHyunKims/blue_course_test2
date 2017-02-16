@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>test2</title>
+</head>
+<body>
+
+<script>
+
+
+    // json 데이터로 바꾸는 함수
+    function parseData(map_string) {
+        var width = Number(map_string.slice(0,map_string.indexOf(",")));
+        var height = Number(map_string.slice(map_string.indexOf(",")+1,map_string.indexOf("\n")));
+        var data = map_string.slice(map_string.indexOf("\n")).split("").map(function(val){
+            if(val==="\n") return undefined;
+            else if(val === "-") return " ";
+            else return val;
+        }).join("");
+        return {
+            "width" : width,
+            "height" : height,
+            "data" : data
+        }
+    }
+
+
+    //json 데이터를 그리는 함수
+    function drawMap(json) {
+
+        var arr = [];
+        var copyData = (json.data).split("");
+
+        for(var i  = 0; i <  json.height ; i++) {
+            var newArr = [];
+            for(var j = 0 ; j < json.width;j++){
+                newArr.push(copyData[j]);
+            }
+            arr.push(newArr);
+            copyData.splice(0,json.width);
+        }
+
+        arr.forEach(function(val,idx){
+            if(idx === arr.length-1) console.log(val.join(""));
+            else console.log(val.join("") + "\n");
+        });
+    }
+
+    var map = "10,5\n++++++++++\n+-P------+\n+--------+\n+-----o--+\n++++++++++\n";
+    var json = parseData(map);
+    console.log("json",json);
+    drawMap(json);
+
+</script>
+</body>
+</html>
