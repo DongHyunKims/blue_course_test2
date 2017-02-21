@@ -7,7 +7,7 @@ test2 : 맵 문자열을 변환하고 출력하는 프로그램
 1. arguments로 들어온 string을 slice함수를 통해 0에서부터 "," 전까지 잘라서 Number형으로 바꾼후 width 변수에 저장합니다.
 2. arguments로 들어온 string을 slice함수를 통해 "," 다음부터 "\n" 전까지 잘라서 Number형으로 바꾼후 height 변수에 저장합니다.
 3. arguments로 들어온 string을 slice함수를 통해 "\n"부터 끝까지 자른후 split 함수를 통해 배열로 만듭니다.
-4. 그후 map 함수를 통해 만약 "\n"이 있으면 undefined로 바꾸고 "-"이 있으면 " "로 바 그 외에는 원래 값으로 return 합니다.
+4. 그후 map 함수를 통해 만약 "\n"이 있으면 undefined로 바꾸고 "-"이 있으면 " "로 바꾸고 그 외에는 원래 값으로 return 합니다.
    undefined로 바꾼 이유는 join함수를 사용하였을때 배열의 undefined를 무시하기 때문입니다.
 5. 마지막으로 join함수를 통해 배열을 값을 string으로 만들고 data변수에 저장합니다.
 6. width변수와 height변수, data변수로 객체를 만들어 return 합니다.
